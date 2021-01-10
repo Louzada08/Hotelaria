@@ -1,0 +1,88 @@
+﻿@model LZMotel.WebApp.MVC.Models.UsuarioRegistro
+@{
+    ViewData["Title"] = "Registro";
+}
+
+@*<div class="content-wrapper">
+    <section class="content">
+        <div class="tab-pane" id="settings">*@
+            <form class="form-horizontal" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+
+                <vc:Summary></vc:Summary>
+
+                <div class="form-group row">
+                    <label asp-for="Nome" class="col-sm-3 col-form-label"></label>
+                    <div class="col-sm-9">
+                        <input class="form-control" asp-for="Nome" placeholder="Nome completo">
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label asp-for="Cpf" class="col-sm-3 col-form-label"></label>
+                    <input asp-for="Cpf" class="form-control" />
+                    <span asp-validation-for="Cpf" class="text-danger"></span>
+                </div>
+
+                <div class="form-group row">
+                    <label asp-for="Turno" class="col-sm-3 col-form-label"></label>
+                    <input asp-for="Turno" class="form-control" />
+                    <span asp-validation-for="Turno" class="text-danger"></span>
+                </div>
+
+                <div class="form-group row">
+                    <label asp-for="Email" class="col-sm-3 col-form-label"></label>
+                    <div class="col-sm-9">
+                        <input class="form-control" asp-for="Email" placeholder="Email">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label asp-for="Funcao" class="col-sm-3 col-form-label"></label>
+                    <div class="col-sm-9">
+                        <select class="form-control" asp-for="Funcao" placeholder="Funcao">
+                            <option>ADMINISTRADOR</option>
+                            <option>GERENTE</option>
+                            <option>ATENDENTE</option>
+                        </select>
+                        <span asp-validation-for="Funcao" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label asp-for="Senha" class="col-sm-3 col-form-label"></label>
+                    <div class="col-sm-9">
+                        <input type="password" asp-for="Senha" class="form-control" />
+                        <span asp-validation-for="Senha" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label asp-for="SenhaConfirmacao" class="col-sm-3 col-form-label"></label>
+                    <div class="col-sm-9">
+                        <input type="password" asp-for="SenhaConfirmacao" class="form-control" />
+                        <span asp-validation-for="SenhaConfirmacao" class="text-danger"></span>
+                    </div>
+                </div>
+
+                @*<div class="form-group row">
+                        <div class="offset-sm-3 col-sm-9">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Eu concordo com os <a href="#">Termos e Condições</a>
+                                </label>
+                            </div>
+                        </div>
+                    </div>*@
+                <div class="form-group row">
+                    <div class="offset-sm-3 col-sm-9">
+                        <button type="submit" class="btn btn-danger">Registrar</button>
+                    </div>
+                </div>
+            </form>
+        @*</div>*@
+        @section Scripts {
+            <partial name="_ValidationScriptsPartial" />
+        }
+    @*</section>
+</div>*@

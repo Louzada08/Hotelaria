@@ -1,0 +1,39 @@
+﻿@using LZMotel.WebApp.MVC.Extensions
+@model IEnumerable<LZMotel.WebApp.MVC.Models.SuiteViewModel>
+
+@{
+    ViewData["Title"] = "Todos os Locais";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div>
+            <div class="container" style=" padding-top: 5px">
+                <div class="row">
+                    @{
+                        foreach (var suite in Model.OrderBy(p => p.SuiteNumero))
+                        {
+                            <div class="col-sm-2">
+                                <div href="" class="card card-product-grid">
+                                    <a asp-controller="Local" asp-action="SuiteDetalhe" asp-route-id="@suite.Id" class="img-wrap">
+                                        <span class="badge badge-light">@suite.Nome&emsp;@suite.SuiteNumero</span>
+                                    </a>
+                                    <figcaption class="info-wrap">
+                                        <a asp-controller="Local" asp-action="SuiteDetalhe" asp-route-id="@suite.Id" class="title">
+                                            <b> @suite.Comanda</b>
+                                        </a>
+
+                                        <small class="card-text">
+                                            @this.MensagemEstoque(suite.SuiteNumero)<br /><br />
+                                            @suite.Nome
+                                        </small>
+                                    </figcaption>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

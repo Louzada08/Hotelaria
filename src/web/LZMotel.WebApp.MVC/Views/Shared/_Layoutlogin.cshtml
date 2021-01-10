@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LoveIn Gestão de Motel</title>
+
+    <link href="~/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/Style.css" rel="stylesheet" />
+</head>
+
+<body>
+    @RenderBody()
+    <footer class="border-top footer text-muted">
+        <div class="container text-center">
+            &copy; 2020 Dev Back-End SEMUS
+        </div>
+    </footer>
+    <script src="~/bootstrap/dist/js/bootstrap.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

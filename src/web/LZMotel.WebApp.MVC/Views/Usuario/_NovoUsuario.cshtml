@@ -1,0 +1,71 @@
+﻿@*@model LZMotel.WebApp.MVC.Models.UsuarioRegistro
+@{
+    ViewData["Title"] = "Novo Usuário";
+}
+
+    <div class="modal fade" id="usuarioModal" tabindex="-1" role="dialog" aria-labelledby="usuarioModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id="myModalContent">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">@ViewData["Title"]</h4>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">×</span><span class="sr-only">Fechar</span>
+                        </button>
+                    </div>
+                    
+                    <form asp-action="NovoUsuario" asp-controller="Cliente">
+                        <div class="modal-body">
+
+                            <div class="form-group">
+                                <label asp-for="Usuario.Cep"></label>
+                                <input asp-for="Usuario.Cep" class="form-control" />
+                                <span asp-validation-for="Usuario.Cep" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Usuario.Logradouro"></label>
+                                <input asp-for="Usuario.Logradouro" class="form-control" />
+                                <span asp-validation-for="Usuario.Logradouro" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Usuario.Numero"></label>
+                                <input asp-for="Usuario.Numero" class="form-control" />
+                                <span asp-validation-for="Usuario.Numero" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Usuario.Complemento"></label>
+                                <input asp-for="Usuario.Complemento" class="form-control" />
+                                <span asp-validation-for="Usuario.Complemento" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Usuario.Bairro"></label>
+                                <input asp-for="Usuario.Bairro" class="form-control" />
+                                <span asp-validation-for="Usuario.Bairro" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Usuario.Cidade"></label>
+                                <input asp-for="Usuario.Cidade" class="form-control" />
+                                <span asp-validation-for="Usuario.Cidade" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Usuario.Estado"></label>
+                                <input asp-for="Usuario.Estado" class="form-control" />
+                                <span asp-validation-for="Usuario.Estado" class="text-danger"></span>
+                            </div>
+
+                            <div class="modal-footer">
+                                <div>
+                                    <input type="submit" value="Cadastrar Endereço" class="btn btn-success" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    BuscaCep();
+</script>*@

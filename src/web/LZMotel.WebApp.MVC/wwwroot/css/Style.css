@@ -1,0 +1,10 @@
+﻿.image-login, .fill, .map {
+    min-height: 100vh;
+    background-image: url(../theme/dist/img/photo2.png);
+}
+
+div.login-tamanho {
+    width: 80%;
+    height: 65%;
+    margin: 18% 10% 18% 10%; 
+}

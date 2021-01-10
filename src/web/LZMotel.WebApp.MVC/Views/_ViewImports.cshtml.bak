@@ -1,0 +1,4 @@
+﻿@using LZMotel.WebApp.MVC
+@using LZMotel.WebApp.MVC.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper "*,LZMotel.WebApp.MVC"

@@ -1,0 +1,10 @@
+﻿@using LZMotel.WebApp.MVC.Extensions
+@inject IUser AppUser
+
+@if (AppUser.EstaAutenticado())
+{
+    <div class="info">
+        @*<a asp-controller="Identidade" asp-action="Usuario" asp-route-id="@AppUser.ObterUserId()" class="d-block">@AppUser.ObterUserEmail()</a>*@
+        <a asp-controller="Usuario" asp-action="Index" class="d-block">@AppUser.ObterUserEmail()</a>
+    </div>
+}
