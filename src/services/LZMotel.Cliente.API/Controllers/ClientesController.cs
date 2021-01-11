@@ -1,4 +1,5 @@
-﻿using LZMotel.Clientes.API.Models;
+﻿using LZMotel.Clientes.API.Application.Commands;
+using LZMotel.Clientes.API.Models;
 using LZMotel.Core.Mediator;
 using LZMotel.WebAPI.Core.Controllers;
 using LZMotel.WebAPI.Core.Usuario;
@@ -35,5 +36,21 @@ namespace LZMotel.Clientes.API.Controllers
     {
       return await _clienteRepository.ObterListaClientes();
     }
+
+    [HttpGet("cliente/endereco")]
+    public async Task<IActionResult> ObterEndereco()
+    {
+      var endereco = await _clienteRepository.ObterEnderecoPorId(_user.ObterUserId());
+
+      return endereco == null ? NotFound() : CustomResponse(endereco);
+    }
+
+    [HttpPost("cliente/endereco")]
+    public async Task<IActionResult> AdicionarEndereco(AdicionarEnderecoCommand endereco)
+    {
+      endereco.ClienteId = _user.ObterUserId();
+      return CustomResponse(await _mediatorHandler.EnviarComando(endereco));
+    }
+
   }
 }

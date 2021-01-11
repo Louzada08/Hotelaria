@@ -1,12 +1,12 @@
-﻿using LZMotel.Identidade.API.Data;
-using LZMotel.Identidade.API.Extensions;
+﻿using LZMotel.Usuarios.API.Data;
+using LZMotel.Usuarios.API.Extensions;
 using LZMotel.WebAPI.Core.Identidade;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace LZMotel.Identidade.API.Configuration
+namespace LZMotel.Usuarios.API.Configuration
 {
   public static class IdentityConfig
   {

@@ -14,8 +14,8 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a asp-controller="Local" asp-action="Index">Home</a></li>
-                        <li class="breadcrumb-item active">User Profile</li>
+                        <li class="breadcrumb-item"><a asp-controller="Local" asp-action="Index">Homel</a></li>
+                        <li class="breadcrumb-item active">Usuario</li>
                     </ol>
                 </div>
             </div>
@@ -33,10 +33,10 @@
                             <table class="table table-bordered table-striped table-hover table-condensed">
                                 <thead>
                                     <tr class="active">
-                                        <th>Id</th>
+                                        @*<th>Id</th>*@
                                         <th>Nome Completo</th>
-                                        @*<th>CPF</th>
-                                            <th>EMAIL</th>*@
+                                        <th>CPF</th>
+                                        @*<th>EMAIL</th>*@
                                         <th>Turno</th>
                                         <th>Funcão</th>
                                         <th>Excluido?</th>
@@ -44,36 +44,40 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if (Model.Clientes.Any())
-                                    {
-                                        @foreach (var item in Model.Clientes)
+                                    @{
+                                        if (Model.Clientes.Any())
                                         {
-                                            <tr class="success">
-                                                <td>@item.Id</td>
-                                                <td>@item.Nome</td>
-                                                @*<td>@item.Cpf</td>
-                                                    <td>@item.Email</td>*@
-                                                <td>@item.Turno</td>
-                                                <td>@item.Funcao</td>
-                                                <td>
-                                                    @if (item.Excluido)
-                                                    {
-                                                        <span>SIM</span>
-                                                    }
-                                                    else
-                                                    {
-                                                        <span>NÃO</span>
-                                                    }
-                                                </td>
-                                                <td>
-                                                    <a asp-action="Editar" asp-route-id="@item.Id">Editar</a> |
-                                                    <a asp-action="Excluir" asp-route-id="@item.Id">Excluir</a>
-                                                </td>
-                                            </tr>
+                                            @foreach (var item in Model.Clientes)
+                                            {
+                                                <tr class="success">
+                                                    <td>@item.Nome</td>
+                                                    <td>@item.Cpf.Numero</td>
+                                                    @*<td>@item.Email</td>*@
+                                                    <td>@item.Turno</td>
+                                                    <td>@item.Funcao</td>
+                                                    <td>
+                                                        @if (item.Excluido)
+                                                        {
+                                                            <span>SIM</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span>NÃO</span>
+                                                        }
+                                                    </td>
+                                                    <td>
+                                                        <a asp-action="Editar" asp-route-id="@item.Id">Editar</a> |
+                                                        <a asp-action="Excluir" asp-route-id="@item.Id">Excluir</a> |
+                                                        <partial name="_Endereco" model="Model" />
+                                                    </td>
+                                                </tr>
+                                            }
                                         }
                                     }
                                 </tbody>
                             </table>
+
+                            <partial name="_NovoEndereco" />
                         </div>
                     </div>
                 </div>
@@ -84,5 +88,11 @@
     </section>
 </div>
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+       $(document).ready(function() {
+          BuscaCep();
+       });
+    </script>
 }

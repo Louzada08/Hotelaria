@@ -1,4 +1,5 @@
 ﻿
+using LZMotel.Core.DomainObjects;
 using System;
 
 namespace LZMotel.WebApp.MVC.Models
@@ -9,7 +10,7 @@ namespace LZMotel.WebApp.MVC.Models
     public string Nome { get; set; }
     public string Turno { get; set; }
     //public string Email { get; set; }
-    //public string Cpf { get;  set; }
+    public Cpf Cpf { get; set; }
     public string Funcao { get; set; }
     public bool Excluido { get; set; }
 

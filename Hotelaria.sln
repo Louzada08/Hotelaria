@@ -59,10 +59,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MessageBus", "MessageBus", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LZMotel.MessageBus", "src\building blocks\LZMotel.MessageBus\LZMotel.MessageBus.csproj", "{3F4FBC29-C1EC-48E4-8EFA-6EC87DF24DF1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Usuarios", "Usuarios", "{76A57507-BCDD-4888-AA4B-56B74BB880BC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LZMotel.Usuarios.API", "src\services\LZMotel.Usuarios.API\LZMotel.Usuarios.API.csproj", "{40F0C3F3-84E0-479F-8285-8F82FE7AE3ED}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,10 +113,6 @@ Global
 		{3F4FBC29-C1EC-48E4-8EFA-6EC87DF24DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F4FBC29-C1EC-48E4-8EFA-6EC87DF24DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F4FBC29-C1EC-48E4-8EFA-6EC87DF24DF1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{40F0C3F3-84E0-479F-8285-8F82FE7AE3ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{40F0C3F3-84E0-479F-8285-8F82FE7AE3ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{40F0C3F3-84E0-479F-8285-8F82FE7AE3ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{40F0C3F3-84E0-479F-8285-8F82FE7AE3ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -153,8 +145,6 @@ Global
 		{1F589328-D6B6-4F42-B32E-5D07656B2D3B} = {E9248D3B-401C-4A4A-8636-8FE006BB406C}
 		{23E7F27F-A23F-4AF5-B459-2187DCDAF34C} = {3C280183-8151-4089-8BB0-43715384FD68}
 		{3F4FBC29-C1EC-48E4-8EFA-6EC87DF24DF1} = {23E7F27F-A23F-4AF5-B459-2187DCDAF34C}
-		{76A57507-BCDD-4888-AA4B-56B74BB880BC} = {57C914D9-98F8-4C20-9A39-AC4C22043207}
-		{40F0C3F3-84E0-479F-8285-8F82FE7AE3ED} = {76A57507-BCDD-4888-AA4B-56B74BB880BC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {27904459-1DDB-4F6E-924F-067AD8A94002}

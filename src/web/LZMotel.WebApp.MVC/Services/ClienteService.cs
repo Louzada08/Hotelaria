@@ -1,4 +1,4 @@
-﻿using LZMotel.Clientes.API.Models;
+﻿using LZMotel.Core.DomainObjects;
 using LZMotel.WebApp.MVC.Extensions;
 using LZMotel.WebApp.MVC.Models;
 using Microsoft.Extensions.Options;
@@ -14,7 +14,10 @@ namespace LZMotel.WebApp.MVC.Services
   public interface IClienteService
   {
     Task<ClienteViewModel> ObterRegistroCliente(Guid id);
-    Task<IEnumerable<ClienteViewModel>> ObterTodosClientes();
+    Task<UsuarioRegistro> ObterTodosClientes();
+    Task<EnderecoViewModel> ObterEndereco();
+    Task<ResponseResult> AdicionarEndereco(EnderecoViewModel endereco);
+
   }
   #endregion
   public class ClienteService : Service, IClienteService
@@ -38,7 +41,7 @@ namespace LZMotel.WebApp.MVC.Services
       return await DeserializarObjetoResponse<ClienteViewModel>(response);
     }
 
-    public async Task<IEnumerable<ClienteViewModel>> ObterTodosClientes()
+    public async Task<UsuarioRegistro> ObterTodosClientes()
     {
       var response = await _httpClient.GetAsync(requestUri: "/clientes/usuarios/");
 
@@ -46,7 +49,35 @@ namespace LZMotel.WebApp.MVC.Services
 
       TratarErrosResponse(response);
 
-      return await DeserializarObjetoResponse<IEnumerable<ClienteViewModel>>(response);
+      var clientesUsers = new UsuarioRegistro
+      {
+        Clientes = await DeserializarObjetoResponse<IEnumerable<ClienteViewModel>>(response)
+      }; 
+      
+      return clientesUsers;
     }
+
+    public async Task<EnderecoViewModel> ObterEndereco()
+    {
+      var response = await _httpClient.GetAsync("/cliente/endereco/");
+
+      if (response.StatusCode == HttpStatusCode.NotFound) return null;
+
+      TratarErrosResponse(response);
+
+      return await DeserializarObjetoResponse<EnderecoViewModel>(response);
+    }
+
+    public async Task<ResponseResult> AdicionarEndereco(EnderecoViewModel endereco)
+    {
+      var enderecoContent = ObterConteudo(endereco);
+
+      var response = await _httpClient.PostAsync("/cliente/endereco/", enderecoContent);
+
+      if (!TratarErrosResponse(response)) return await DeserializarObjetoResponse<ResponseResult>(response);
+
+      return RetornoOk();
+    }
+
   }
 }

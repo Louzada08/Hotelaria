@@ -1,7 +1,9 @@
-﻿using LZMotel.WebApp.MVC.Services;
+﻿using LZMotel.WebApp.MVC.Models;
+using LZMotel.WebApp.MVC.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace LZMotel.WebApp.MVC.Controllers
@@ -34,6 +36,17 @@ namespace LZMotel.WebApp.MVC.Controllers
     public IActionResult Registro(string returnUrl = null)
     {
       return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> NovoEndereco(EnderecoViewModel endereco)
+    {
+      var response = await _clienteService.AdicionarEndereco(endereco);
+
+      if (ResponsePossuiErros(response)) TempData["Erros"] =
+          ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage)).ToList();
+
+      return RedirectToAction(actionName:"Index", controllerName:"Usuario");
     }
 
   }

@@ -9,13 +9,13 @@ namespace LZMotel.WebApp.MVC.Controllers
   {
     private readonly IAutenticacaoService _autenticacaoService;
     private readonly IClienteService _clienteService;
-    private readonly IUsuarioService _usuarioService;
-    public UsuarioController(IAutenticacaoService autenticacaoService, IClienteService clienteService,
-      IUsuarioService usuarioService)
+    //private readonly IUsuarioService _usuarioService;
+    public UsuarioController(IAutenticacaoService autenticacaoService, IClienteService clienteService
+      )//IUsuarioService usuarioService)
     {
       _autenticacaoService = autenticacaoService;
       _clienteService = clienteService;
-      _usuarioService = usuarioService;
+      //_usuarioService = usuarioService;
     }
 
     [HttpGet]

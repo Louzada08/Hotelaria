@@ -1,4 +1,5 @@
 ﻿using LZMotel.WebApp.MVC.Extensions;
+using LZMotel.WebApp.MVC.Models;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
@@ -42,6 +43,11 @@ namespace LZMotel.WebApp.MVC.Services
 
       response.EnsureSuccessStatusCode();
       return true;
+    }
+
+    protected ResponseResult RetornoOk()
+    {
+      return new ResponseResult();
     }
   }
 }
